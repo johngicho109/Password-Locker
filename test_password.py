@@ -19,6 +19,20 @@ class TestUser(unittest.TestCase,User):
         """
         User.user_logins = []
 
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_user.user_name,"Joe")
+        self.assertEqual(self.new_user.password,"1234")
+
+    def test_save_user(self):
+        '''
+        test_save_user test case to test if the user object is saved into the user logins list.
+        '''
+        self.new_user.save_user()
+        self.assertEqual(len(User.user_logins),1)
+
 
 class TestCredential(unittest.TestCase,Credentials):
     '''
@@ -37,6 +51,22 @@ class TestCredential(unittest.TestCase,Credentials):
         tearDown method that does clean up after each test case has run.
         """
         Credentials.account_credentials = []
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+        self.assertEqual(self.new_credentials.account,"facebook")
+        self.assertEqual(self.new_credentials.first_name,"Joe")
+        self.assertEqual(self.new_credentials.last_name,"Tech")
+        self.assertEqual(self.new_credentials.password,"1234")
+
+    def test_save_credentials(self):
+        '''
+        test_save_credentials test case to test if the credential object is saved into the account credential list.
+        '''
+        self.new_credentials.save_credentials()
+        self.assertEqual(len(Credentials.account_credentials),1)
 
 if __name__ == '__main__':
     unittest.main()

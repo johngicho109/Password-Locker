@@ -17,7 +17,7 @@ class User():
         '''
         save_user method saves user objects into user_login list.
         '''
-        self.User.user_logins.append()
+        self.user_logins.append(self)
 
 class Credentials():
     """
@@ -39,8 +39,8 @@ class Credentials():
         self.account = account
         self.password = password
 
-    def save_credential(self):
+    def save_credentials(self):
         """
         save_credential method saves credential objects into account credential  list.
         """
-        self.account_credentials.append()
+        self.account_credentials.append(self)
